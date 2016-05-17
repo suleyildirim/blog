@@ -2,7 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\DetailView;
-use backend\modules\blog\models\Tbtype;
+use suleyildirim\blog\models\Tbtype;
 use common\models\User;
 
 /* @var $this yii\web\View */

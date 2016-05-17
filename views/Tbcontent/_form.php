@@ -5,7 +5,7 @@ use yii\widgets\ActiveForm;
 use yii\helpers\ArrayHelper;
 use common\models\User;
 
-use backend\modules\blog\models\Tbtype;
+use suleyildirim\blog\models\Tbtype;
 
 /* @var $this yii\web\View */
 /* @var $model backend\modules\blog\models\Tbcontent */
