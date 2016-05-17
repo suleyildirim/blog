@@ -1,6 +1,6 @@
 <?php
 
-namespace backend\modules\blog\models;
+namespace suleyildirim\blog\models;
 
 use Yii;
 
@@ -8,7 +8,7 @@ use common\models\User;
 
 /**
  * This is the model class for table "tbcontent".
- *
+ * suleyildirim
  * @property integer $id
  * @property string $title
  * @property string $subject
