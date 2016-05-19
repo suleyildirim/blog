@@ -7,7 +7,7 @@ use yii\rest\ActiveController;
 
 class RestfulController extends ActiveController
 {
-	public $modelClass = 'suleyildirim\blog\models\Tbcontent',
+	public $modelClass = 'suleyildirim\blog\models\Tbcontent';
 }
 	
 
