@@ -23,9 +23,9 @@ class m160520_145343_create_tbcontent extends Migration
             'tag' => $this->string(128)->notNull(),
             'content' => $this->string(4000)->notNull(),
             'logo' => $this->string(4000)->notNull(),
-            'date' => $this->dateTime()->defaultValue(CURRENT_TIMESTAMP)->notNull(),
-            'type' => $this->integer,
-            'author' => $this->integer->notNull(),
+            'date' => $this->dateTime()->notNull(),
+            'type' => $this->integer()->notNull(),
+            'author' => $this->integer()->notNull(),
         ]);
 
         // creates index for column `type`
