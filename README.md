@@ -4,9 +4,70 @@ BLOG PORTALI
 Path
 ----
 
+
+<b>Migrate</b>
+
+
+yii migrate
+
+
+
+```
+	return [
+		'controllerMap' => [
+			'migrate' => [
+				'class' => 'yii\console\controllers\MigrateController',
+				'migrationTable' => 'backend_migration',
+			],
+		],
+	];
+```
+
+
+<b>Rbac</b>
+
+C:\xampp\htdocs\advanced\common\config\main-local.php
+```
+	<?php
+	return [
+		'components' => [
+			'db' => [
+				'class' => 'yii\db\Connection',
+				'dsn' => 'mysql:host=localhost;dbname=advanced',
+				'username' => 'root',
+				'password' => '',
+				'charset' => 'utf8',
+			],
+			'mailer' => [
+				'class' => 'yii\swiftmailer\Mailer',
+				'viewPath' => '@common/mail',
+				// send all mails to a file by default. You have to set
+				// 'useFileTransport' to false and configure a transport
+				// for the mailer to send real emails.
+				'useFileTransport' => true,
+			],
+			'authManager' => [
+				'class' => 'yii\rbac\DbManager',
+			],
+		],
+	];
+```
+
+\xampp\htdocs\advanced
+
+```
+yii migrate --migrationPath=@yii/rbac/migrations
+yii rbac\init
+yii rbac\author-rule
+
+```
+
+<b>Configuring</b>
+
 \xampp\htdocs\advanced\composer.json
 
-```"require": {
+```
+	"require": {
         "php": ">=5.4.0",
 		"yiisoft/yii2": ">=2.0.6",
 		"yiisoft/yii2-bootstrap": "*",
@@ -18,7 +79,8 @@ Path
 
 \xampp\htdocs\advanced\backend\config\main-local.php
 
-```	$config = [
+```	
+	$config = [
 		'modules' => [
 			'blog' => [
 				'class' => 'suleyildirim\blog\Module',
@@ -41,11 +103,11 @@ Restful API
 
 \xampp\htdocs\advanced\backend\config\main-local.php
 
-```	$config = [
+```	
+	$config = [
     'modules' => [
         'blog' => [
-            //'class' => 'suleyildirim\blog\Module',
-			'class' => 'backend\modules\blog\Module',
+            'class' => 'suleyildirim\blog\Module',
         ],
     ],
 	
@@ -84,7 +146,8 @@ Restful API
 
 \xampp\htdocs\advanced\frontend\config\main-local.php
 
-```	'components' => [
+```	
+	'components' => [
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'bcsHZoIMxZ8Rkbpmt0SFvmZvDCQCK26d',
@@ -158,7 +221,8 @@ RewriteRule ^.*$ api/web/index.php [L]
 
 \blog\components\AppRequest.php
 
-```<?php
+```
+<?php
 
 namespace common\components;
 
