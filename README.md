@@ -7,9 +7,10 @@ Path
 
 <b>Migrate</b>
 
-
-yii migrate
-
+```
+	C:\xampp\htdocs\advanced\console\migrations
+	yii migrate
+```
 
 
 ```
@@ -25,6 +26,8 @@ yii migrate
 
 
 <b>Rbac</b>
+
+
 
 C:\xampp\htdocs\advanced\common\config\main-local.php
 ```
@@ -55,10 +58,27 @@ C:\xampp\htdocs\advanced\common\config\main-local.php
 
 \xampp\htdocs\advanced
 
+RbacController 
+
+```
+	C:\xampp\htdocs\advanced\console\controllers
+	yii rbac/init
+
+```
+
+AuthorRule
+
+```
+	C:\xampp\htdocs\advanced\common
+	new folder "rbac"
+	yii rbac/author-rule
+
+```
+
 ```
 yii migrate --migrationPath=@yii/rbac/migrations
-yii rbac\init
-yii rbac\author-rule
+yii rbac/init
+yii rbac/author-rule
 
 ```
 
