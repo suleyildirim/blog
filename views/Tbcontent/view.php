@@ -29,9 +29,13 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="tbcontent-view">
 
-    <h1><?= Html::encode($this->title) ?></h1>
-
-    <p>
+    
+    <div class="container">
+        
+    <div class="panel panel-default">
+       <div class="panel-heading">
+       <b><?= $model->subject ?></b><span class="badge"><?= $model->tag?></span>
+        
         <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
         <?= Html::a('Delete', ['delete', 'id' => $model->id], [
             'class' => 'btn btn-danger',
@@ -40,34 +44,21 @@ $this->params['breadcrumbs'][] = $this->title;
                 'method' => 'post',
             ],
         ]) ?>
-    </p>
-
-    <h1><?php echo $model->title; ?></h1>
-
-    <div class="postState">
+     
+     
+        </div>
 
         
-        <span class="postSubject">
-            <?php echo $model->subject;?>
-        </span>
-        <br>Tag 
-        <span class="postTag">
-            <?php echo $model->tag;?>
-        </span>
-        <br>Date
-        <span class="postDate">
-            <?php echo date("d/m/Y", strtotime( $model->date ) );?>
-        </span>
-        In
-        <span class="postCat">
-            <?php echo $model->types->Name ?>
-        </span>
-        By 
-        <span class="postAut">
-            <?php echo $model->authors->username ?>
-        </span>
+
+        <div class="panel-body">
+            
+            <?= $model->content?>
+        </div>
+    <div class="panel-footer">
+        <b>"<?= $model->title ;?>"</b> in <?=$model->types->Name?> created by <?= $model->authors->username?> at <?= $model->date ?> 
     </div>
-    <?php echo $model->content; ?>
+    </div>
+
 
 </div>
 
